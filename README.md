@@ -35,9 +35,9 @@ npm install apollo-link-http-pooled --save
 ## Usage
 
 ```typescript
-import { createHttpLink } from "apollo-link-http-pooled";
+import { createHttpLink } from 'apollo-link-http-pooled';
 
-const link = createHttpLink({ uri: "/graphql" });
+const link = createHttpLink({ uri: '/graphql' });
 ```
 
 All default options from [apollo-link-http](https://www.apollographql.com/docs/link/links/http/) are supported.
@@ -52,17 +52,24 @@ const link = createHttpLink({
 
   enableDnsCache: true,         # enable or disable
 
-  enableConnectionPool: true,   # enable or disable
+  enableKeepalive: true,        # enable or disable
 
-  freeSocketTimeout: 30000,    # when free sockets time out in ms
+  forceHttps: false,            # force https for new connections
 
-  dnsCacheTtl: 300             # when dns cache expires in ms
+  freeSocketTimeout: 30000,    # time out in ms (requires enableKeepalive)
+
+  dnsCacheTtl: 300             # expiry in ms (requires enableDnsCache)
 
 });
 
 ```
 
 Now you should be good to go! Use this as you would use the normal [apollo-link-http](https://www.apollographql.com/docs/link/links/http/)
+
+## Todos
+
+- Needs Unit Tests
+- Test in Production (not yet at v1.0)
 
 ## Sponsors
 
