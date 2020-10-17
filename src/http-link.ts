@@ -1,18 +1,12 @@
 /* eslint-disable unicorn/no-nested-ternary */
-import fetch from "cross-fetch";
-import { ApolloLink } from "apollo-link";
-import {
-  HttpLink,
-  FetchOptions as DefaultFetchOptions
-} from "apollo-link-http";
-import HttpAgent, {
-  HttpsAgent,
-  AgentStatus as AgentKeepaliveStatus
-} from "agentkeepalive";
-import CacheableLookup from "cacheable-lookup";
+import fetch from 'cross-fetch';
+import { ApolloLink } from 'apollo-link';
+import { HttpLink, FetchOptions as DefaultFetchOptions } from 'apollo-link-http';
+import HttpAgent, { HttpsAgent, AgentStatus as AgentKeepaliveStatus } from 'agentkeepalive';
+import CacheableLookup from 'cacheable-lookup';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface HttpLinkPooledOpts extends Omit<DefaultFetchOptions, "uri"> {
+export interface HttpLinkPooledOpts extends Omit<DefaultFetchOptions, 'uri'> {
   uri: string;
   forceHttps?: boolean;
   enableDnsCache?: boolean;
@@ -50,18 +44,10 @@ class HttpLinkPooled extends HttpLink {
 
     let agent: HttpsAgent | HttpAgent | undefined;
 
-    if (
-      linkOptions.fetchOptions?.agent ||
-      linkOptions.enableDnsCache ||
-      linkOptions.enableKeepalive
-    ) {
-      const isHttps =
-        linkOptions.forceHttps ||
-        (linkOptions.uri || "").toLowerCase().startsWith("https");
+    if (linkOptions.fetchOptions?.agent || linkOptions.enableDnsCache || linkOptions.enableKeepalive) {
+      const isHttps = linkOptions.forceHttps || (linkOptions.uri || '').toLowerCase().startsWith('https');
 
-      agent = isHttps
-        ? new HttpsAgent(agentOptions)
-        : new HttpAgent(agentOptions);
+      agent = isHttps ? new HttpsAgent(agentOptions) : new HttpAgent(agentOptions);
 
       Object.assign(linkOptions, {
         fetchOptions: Object.assign(linkOptions.fetchOptions || {}, { agent })
@@ -79,9 +65,9 @@ class HttpLinkPooled extends HttpLink {
 
 // This is to remain backwards-compatible with apollo-link-http
 function createHttpLink(linkOptions?: HttpLinkPooledOpts): ApolloLink {
-  const fetchOptions: HttpLinkPooledOpts = linkOptions || { uri: "/graphql" };
+  const fetchOptions: HttpLinkPooledOpts = linkOptions || { uri: '/graphql' };
 
-  fetchOptions.uri = fetchOptions.uri || "/graphql";
+  fetchOptions.uri = fetchOptions.uri || '/graphql';
   fetchOptions.fetch = fetchOptions.fetch || fetch;
 
   return new HttpLinkPooled(fetchOptions);

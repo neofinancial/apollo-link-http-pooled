@@ -35,9 +35,9 @@ npm install apollo-link-http-pooled --save
 ## Usage
 
 ```typescript
-import { createHttpLink } from "apollo-link-http-pooled";
+import { createHttpLink } from 'apollo-link-http-pooled';
 
-const link = createHttpLink({ uri: "/graphql" });
+const link = createHttpLink({ uri: '/graphql' });
 ```
 
 All default options from [apollo-link-http](https://www.apollographql.com/docs/link/links/http/) are supported.
