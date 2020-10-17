@@ -50,7 +50,7 @@ class HttpLinkPooled extends HttpLink {
       agent = isHttps ? new HttpsAgent(agentOptions) : new HttpAgent(agentOptions);
 
       Object.assign(linkOptions, {
-        fetchOptions: Object.assign(linkOptions.fetchOptions || {}, { agent })
+        fetchOptions: Object.assign({}, linkOptions.fetchOptions, { agent })
       });
     }
 
