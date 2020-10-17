@@ -1,6 +1,6 @@
 {
   "name": "apollo-link-http-pooled",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "HTTP transport for GraphQL with Connection Pooling and DNS Caching",
   "author": "Neo Financial <engineering@neofinancial.com>",
   "contributors": [

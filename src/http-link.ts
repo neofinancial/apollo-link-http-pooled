@@ -1,11 +1,9 @@
-/* eslint-disable unicorn/no-nested-ternary */
 import fetch from 'cross-fetch';
 import { ApolloLink } from 'apollo-link';
 import { HttpLink, FetchOptions as DefaultFetchOptions } from 'apollo-link-http';
 import HttpAgent, { HttpsAgent, AgentStatus as AgentKeepaliveStatus } from 'agentkeepalive';
 import CacheableLookup from 'cacheable-lookup';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface HttpLinkPooledOpts extends Omit<DefaultFetchOptions, 'uri'> {
   uri: string;
   forceHttps?: boolean;
