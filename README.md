@@ -69,5 +69,8 @@ const link = createHttpLink({
 ```
 
 
-
 Now you should be good to go!  Use this as you would use the normal [apollo-link-http](https://www.apollographql.com/docs/link/links/http/)
+
+## Sponsors
+
+Work on this repository is sometimes sponsored by Canada's [Neo Financial](https://github.com/neofinancial)
