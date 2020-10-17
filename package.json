@@ -1,6 +1,6 @@
 {
   "name": "apollo-link-http-pooled",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "HTTP transport for GraphQL with Connection Pooling and DNS Caching",
   "author": "Neo Financial <engineering@neofinancial.com>",
   "contributors": [
@@ -38,7 +38,9 @@
     "@types/node": "^14.0.13",
     "eslint": "6.8.0",
     "eslint-config-neo": "~0.5.2",
+    "fetch-mock": "^9.10.7",
     "graphql": "^15.3.0",
+    "graphql-tag": "^2.11.0",
     "jest": "26.1.0",
     "prettier": "1.19.1",
     "rimraf": "3.0.2",
